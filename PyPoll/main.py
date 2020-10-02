@@ -26,16 +26,52 @@ with open(csvpath, newline='') as csvfile:
     total_candidate_votes.append(candidates_votes.most_common())
     #print(f'{total_candidate_votes}')
 
+    #Total Votes
+    total_votes = sum(candidates_votes.values())
+    #print(f"{total_votes})
+
+    #Candidate placements
+    first_candidate = total_candidate_votes[0][0][0]
+    #print(f"{first_candidate}")
+    second_candidate = total_candidate_votes[0][1][0]
+    third_candidate = total_candidate_votes[0][2][0]
+    fourth_candidate = total_candidate_votes[0][3][0]
+
+    #Voting placement
+    first_place = total_candidate_votes[0][0][1]
+    #print(f"{first_place}")
+    second_place = total_candidate_votes[0][1][1]
+    third_place = total_candidate_votes[0][2][1]
+    fourth_place = total_candidate_votes[0][3][1]
+    
     #Percentage of votes
     for item in total_candidate_votes: 
-        first_place = format((item[0][1])*100/(sum(candidates_votes.values())),'.3f')
+        first_percentage = format((item[0][1])*100/(sum(candidates_votes.values())),'.3f')
         #print(f'{first_place}')
-        second_place = format((item[1][1])*100/(sum(candidates_votes.values())),'.3f')
+        second_percentage = format((item[1][1])*100/(sum(candidates_votes.values())),'.3f')
         #print(f'{second_place}')
-        third_place = format((item[2][1])*100/(sum(candidates_votes.values())),'.3f')
+        third_percentage = format((item[2][1])*100/(sum(candidates_votes.values())),'.3f')
         #print(f'{third_place}')
-        fourth_place = format((item[3][1])*100/(sum(candidates_votes.values())),'.3f')
+        fourth_percentage = format((item[3][1])*100/(sum(candidates_votes.values())),'.3f')
         #print(f'{fourth_place}')
+
+
+    
+
+
+
+print("Election Results")
+print("-------------------")
+print(f"Total Votes: {total_votes}")
+print("--------------------")
+print(f"{first_candidate}: {first_percentage}% ({first_place}")
+print(f"{second_candidate} : {second_percentage}% ({second_place})")
+print(f"{third_candidate} : {third_percentage}% ({third_place})")
+print(f"{fourth_candidate} : {fourth_percentage}% ({fourth_place})")
+print("---------------------")
+print(f"Winner : {first_candidate}")
+print("---------------------")
+
 
 
 
