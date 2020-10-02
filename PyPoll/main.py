@@ -18,14 +18,35 @@ with open(csvpath, newline='') as csvfile:
         #print(row)
         candidates.append(row[2])
 
+    #Created a sorted list of the candidates 
     voter_list = sorted(candidates)
-    #print(f'{voter_list}')
 
-    candidates_list = Counter(voter_list)
-    #print(f'{candidates}')
+    #Find the number of votes per candidate and put into a list in ascending order
+    candidates_votes = Counter(voter_list)
+    total_candidate_votes.append(candidates_votes.most_common())
+    #print(f'{total_candidate_votes}')
 
-    total_candidate_votes.append(candidates_list.most_common())
-    print(f'{total_candidate_votes}')
+    #Percentage of votes
+    for item in total_candidate_votes: 
+        first_place = format((item[0][1])*100/(sum(candidates_votes.values())),'.3f')
+        #print(f'{first_place}')
+        second_place = format((item[1][1])*100/(sum(candidates_votes.values())),'.3f')
+        #print(f'{second_place}')
+        third_place = format((item[2][1])*100/(sum(candidates_votes.values())),'.3f')
+        #print(f'{third_place}')
+        fourth_place = format((item[3][1])*100/(sum(candidates_votes.values())),'.3f')
+        #print(f'{fourth_place}')
+
+
+
+
+        
+        
+         
+
+    
+
+
     
 
 
