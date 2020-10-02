@@ -72,6 +72,21 @@ print("---------------------")
 print(f"Winner : {first_candidate}")
 print("---------------------")
 
+output_path = os.path.join("Analysis", "election_results.txt")
+with open(output_path, "w") as outfile:
+    outfile.write("Election Results\n")
+    outfile.write("-------------------\n")
+    outfile.write(f"Total Votes: {total_votes}\n")
+    outfile.write("--------------------\n")
+    outfile.write(f"{first_candidate}: {first_percentage}% ({first_place}\n")
+    outfile.write(f"{second_candidate} : {second_percentage}% ({second_place})\n")
+    outfile.write(f"{third_candidate} : {third_percentage}% ({third_place})\n")
+    outfile.write(f"{fourth_candidate} : {fourth_percentage}% ({fourth_place})\n")
+    outfile.write("---------------------\n")
+    outfile.write(f"Winner : {first_candidate}\n")
+    outfile.write("---------------------\n")
+    
+
 
 
 
